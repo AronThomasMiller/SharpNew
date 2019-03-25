@@ -10,14 +10,17 @@ namespace Task3
     {
         public override void Process(IEnumerable<Person> people)
         {
-            foreach (var person in people)
+            var suitablePersons = people.Where(c => c.Age >= 18);
+            foreach (var person in suitablePersons)
             {
-                Console.WriteLine(" Name: " +person.Name + " Age " + person.Age + " Salary per this month " + person.GetOverallSalary() );
-                if (person.GetOverallSalary() > 2000)
-                {
-                    Console.WriteLine("Major");
-                }
-                else Console.WriteLine("Middle payed");
+                Console.WriteLine(person.ToString());
+            }
+            var highestRate = suitablePersons.Max(c => c.HourRate);
+            var highlyPayedPerson = suitablePersons.Where(c => c.HourRate == highestRate);
+            Console.WriteLine("Highly payed person");
+            foreach (var person in highlyPayedPerson)
+            {
+                Console.WriteLine(person.ToString());
             }
         }
     }

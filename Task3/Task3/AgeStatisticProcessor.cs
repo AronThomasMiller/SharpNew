@@ -15,7 +15,7 @@ namespace Task3
             {
                 if ( person.Age == maxAge)
                 {
-                    Console.WriteLine("Maximum age has " + person.Name);
+                    Console.WriteLine($"Maximum age has { person.Name} , { person.Age}");
                 }
             }
             var minAge = people.Min(obj => obj.Age);
@@ -23,16 +23,10 @@ namespace Task3
             {
                 if (person.Age == minAge)
                 {
-                    Console.WriteLine("Minimum age has " + person.Name);
+                    Console.WriteLine($"Minimum age has  {person.Name} , {person.Age}");
                 }
             }
-            int sumAge = 0;
-            foreach (var person in people)
-            {
-                sumAge += person.Age;
-            }
-            sumAge /= people.Count();
-            Console.WriteLine("Average age has " + sumAge);
+            Console.WriteLine("Average age has " + (int)people.Average(c => c.Age));
         }
     }
 }

@@ -10,8 +10,8 @@ namespace Task3
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        public int HourRate {get;set;}
-        public Person (string Name, int Age, int HourRate)
+        public int HourRate { get; set; }
+        public Person(string Name, int Age, int HourRate)
         {
             this.Name = Name;
             this.Age = Age;
@@ -19,11 +19,11 @@ namespace Task3
         }
         public int GetOverallSalary()
         {
-            if (Age < 18)
-            {
-                return 0;
-            }
-            else return (DateTime.Now.Day * 8 * HourRate);
+            return DateTime.Now.Day * 8 * HourRate;
+        }
+        public override string ToString()
+        {
+            return $"{Name} , {Age} , {GetOverallSalary()}";
         }
     }
 }
